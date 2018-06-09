@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jun  7 16:46:39 2018
+
+@author: sandeepkataria
+"""
+
+# Import matrix, array as aliases, dot, array_str, random from numpy
+from numpy import matrix as mx, array as ar
+from numpy import dot, array_str, random
+
+# Create matrix A with size (3,5) containing random numbers 
+A = mx(random.random(15).reshape(3,5))
+print('Matrix A: \n',A)
+
+# Find the size and length of matrix A
+print('Size of matrix A: ',A.size)
+print('Length of matrix A: ',len(A))
+
+# Resize (Crop/Slice) Matrix A to size(3:4)
+A = A[:,0:4]
+print('Matrix A after cropping last column: \n', A)
+
+# Find the transpose of matrix A and assign it to B
+B = A.T
+print('Matrix B: Transpose of A: \n', B)
+
+# Find the minimum value in column 1 of matrix B
+print('Minimum value in 1st columns in matrix B: ', B[:,0].min())
+
+# Find the minimum and maximum values for the entire matrix A
+print('Minimum value of matrix A is: ',A.min())
+print('Maximum value of matrix A is: ',A.max())
+
+# Create vector X (an array) with 4 random numbers
+X = ar(random.random(4))
+print('Vector X, an array is: \n',X)
+
+# Create a function and pass vector X and matrix A in it
+# In the new function multiply vector X with matrix A and assign the result to D
+def new_funct(A, X):
+    D = dot(X, A)
+    print(D)
+    return D
+
+
+# Create a complex number Z with absolute and real parts |=0
+Z = 3.+4.j
+print('Complex number Z: ', Z)
+
+# Show its real and imaginary parts
+print('Real part of complex number Z: ', Z.real)
+print('Imaginary part of complex number Z: ', Z.imag)
+
+# Absolute value of complex number Z
+print('Absolute value of complex number Z: ', abs(Z))
+
+# Multiply result D with the absolute value of Z and record it to C
+C = abs(Z) * new_funct(A.T, X) #passing 'A' Transpose to remove ValueError
+print('Value of C is: \n', C)
+
+# Convert matrix B from a matrix to a string and overwrite B
+#B = str(B)
+B = array_str(B)
+print('Matrix B after conversion to type string: \n', B)
+
+#Display a text on the screen: ‘Your Name is done with HW2‘
+print('Sandeep Kataria is done with HW2')
